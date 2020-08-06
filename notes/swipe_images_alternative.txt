@@ -1,0 +1,57 @@
+class TopScreenImages extends StatefulWidget {
+  @override
+  _TopScreenImagesState createState() => _TopScreenImagesState();
+}
+
+class _TopScreenImagesState extends State<TopScreenImages> {
+  PageController _pageController;
+  // InfinityPageController _infinityPageController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _pageController = PageController(initialPage: 999, viewportFraction: 1);
+    // _infinityPageController = InfinityPageController(initialPage: 1,viewportFraction: 1);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 200,
+      child: PageView.builder(
+          controller: _pageController,
+          // itemCount: _imagesTop.length,
+          itemBuilder: (context, position) {
+            return imageSlider(position);
+          }),
+    );
+  }
+
+  imageSlider(int index) {
+    return AnimatedBuilder(
+      animation: _pageController,
+      builder: (context, widget) {
+        double _value = 1;
+        if (_pageController.position.haveDimensions) {
+          _value = _pageController.page - index;
+          _value = (1 - (_value.abs() * 0.2).clamp(0.0, 1.0));
+        }
+        return Align(
+          alignment: Alignment.topCenter,
+          child: SizedBox(
+            height: Curves.easeInOut.transform(_value) * 200,
+            width: Curves.easeInOut.transform(_value) * double.infinity,
+            child: widget,
+          ),
+        );
+      },
+      child: Container(
+          margin: EdgeInsets.only(top: 10, left: 5),
+          child: Image.network(
+            topScreenImages[index % topScreenImages.length],
+            fit: BoxFit.fill,
+          )),
+    );
+  }
+}

@@ -47,6 +47,7 @@ class BottomWidgets extends StatelessWidget {
           icon: Icon(
             Icons.account_circle,
             size: _size,
+            color: Colors.blueAccent[400],
           ),
           title: Text("My Stuff"),
         ),

@@ -1,4 +1,5 @@
 import 'package:AmazonPrimeVideoClone/Icons/prime_video_icon_icons.dart';
+import 'package:AmazonPrimeVideoClone/widgets/home_widgets.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -15,17 +16,62 @@ class HomeScreen extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
       ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBar(
+      child: DefaultTabController(
+        length: 4,
+        child: Scaffold(
           backgroundColor: Colors.transparent,
-          title: Icon(PrimeVideoIcon.amazon,size: 28,),
-          centerTitle: true,
-        ),
-        body: Center(
-          child: Text("home page"),
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            title: Icon(
+              PrimeVideoIcon.amazon,
+              size: 28,
+            ),
+            bottom: TabBar(
+                indicatorColor: Colors.white,
+                labelColor: Colors.white,
+                tabs: [
+                  Tab(text: "Home"),
+                  Tab(text: "Tv Shows"),
+                  Tab(text: "Movies"),
+                  Tab(text: "Kids"),
+                ]),
+            centerTitle: true,
+          ),
+          body: TabBarView(
+            children: [
+              HomePageController(),
+              TvShows(),
+              Movies(),
+              Kids(),
+            ],
+          ),
         ),
       ),
     );
+  }
+}
+
+class TvShows extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: double.infinity, width: double.infinity, color: Colors.orangeAccent);
+  }
+}
+
+
+class Movies extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: double.infinity, width: double.infinity, color: Colors.pink);
+  }
+}
+
+class Kids extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: double.infinity, width: double.infinity, color: Colors.greenAccent);
   }
 }

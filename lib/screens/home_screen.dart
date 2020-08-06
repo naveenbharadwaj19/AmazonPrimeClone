@@ -6,20 +6,20 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Colors.indigo,
-            Colors.indigo[800],
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-      ),
+      // decoration: BoxDecoration(
+      //   gradient: LinearGradient(
+      //     colors: [
+      //       Colors.indigo,
+      //       Colors.indigo[800],
+      //     ],
+      //     begin: Alignment.topLeft,
+      //     end: Alignment.bottomRight,
+      //   ),
+      // ),
       child: DefaultTabController(
         length: 4,
         child: Scaffold(
-          backgroundColor: Colors.transparent,
+          backgroundColor: Color.fromRGBO(28, 37, 46, 1),
           appBar: AppBar(
             backgroundColor: Colors.transparent,
             title: Icon(

@@ -1,8 +1,11 @@
+import 'package:AmazonPrimeVideoClone/models/amazon_originals_img.dart';
 import 'package:AmazonPrimeVideoClone/models/topscreen_images.dart';
+import 'package:AmazonPrimeVideoClone/models/watch_next_model_img.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 class HomePageController extends StatelessWidget {
+  final double _fontSize1 = 20;
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -13,7 +16,7 @@ class HomePageController extends StatelessWidget {
           child: Text(
             "Watch next TV and movies",
             style: TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: _fontSize1),
           ),
         ),
         WatchNext(),
@@ -22,7 +25,7 @@ class HomePageController extends StatelessWidget {
           child: Text(
             "Amazon Original Series",
             style: TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: _fontSize1),
           ),
         ),
         AmazonOriginal(),
@@ -31,7 +34,7 @@ class HomePageController extends StatelessWidget {
           child: Text(
             "Recommend Movies",
             style: TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+                color: Colors.white, fontWeight: FontWeight.bold, fontSize: _fontSize1),
           ),
         ),
       ],
@@ -62,29 +65,24 @@ class SwipeImages extends StatelessWidget {
 }
 
 class WatchNext extends StatelessWidget {
-  List<Color> _colors = [Colors.red,Colors.white,Colors.tealAccent,Colors.yellow,Colors.greenAccent,Colors.orangeAccent];
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 120,
-      child: ListView.builder(scrollDirection: Axis.horizontal,itemCount: _colors.length,itemBuilder: (context,index){
+      child: ListView.builder(scrollDirection: Axis.horizontal,itemCount :watchNextImg.length,itemBuilder: (context,index){
         return Stack(
           children: <Widget>[
             Container(
               margin: EdgeInsets.only(left:5),
               height: 120,
               width: 180,
-              decoration: BoxDecoration(
-                color: _colors[index],
-                borderRadius: BorderRadius.all(Radius.circular(10))
-              ),
-              // child: Text("h"),
+              child: ClipRRect(child: Image.network(watchNextImg[index],fit: BoxFit.fill),borderRadius: BorderRadius.circular(7),),
             ),
             Container(
               margin: EdgeInsets.only(left:7),
               child: Align(
                 alignment: Alignment.bottomLeft,
-                child: Icon(Icons.play_circle_outline,size: 32,),
+                child: Icon(Icons.play_circle_outline,size: 32,color: Colors.white,),
               ),
             ),
           ],
@@ -95,22 +93,17 @@ class WatchNext extends StatelessWidget {
 }
 
 class AmazonOriginal extends StatelessWidget {
-  List<Color> _colors = [Colors.red,Colors.white,Colors.tealAccent,Colors.yellow,Colors.greenAccent,Colors.orangeAccent];
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 120,
-      child: ListView.builder(scrollDirection: Axis.horizontal,itemCount: _colors.length,itemBuilder: (context,index){
+      child: ListView.builder(scrollDirection: Axis.horizontal,itemCount: amazonOriginalImg.length,itemBuilder: (context,index){
         return 
             Container(
               margin: EdgeInsets.only(left:5),
               height: 120,
               width: 180,
-              decoration: BoxDecoration(
-                color: _colors[index],
-                borderRadius: BorderRadius.all(Radius.circular(10))
-              ),
-              // child: Text("h"),
+              child: ClipRRect(child: Image.network(amazonOriginalImg[index],fit: BoxFit.fill),borderRadius: BorderRadius.circular(7),),
             );
       }),
     );

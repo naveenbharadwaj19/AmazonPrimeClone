@@ -1,4 +1,4 @@
-List<String> watchNextImg = [
+final List<String> watchNextImg = [
   'https://pbs.twimg.com/media/ET35rW9X0AAuIAu.jpg',
   'https://images-na.ssl-images-amazon.com/images/I/91o+wx4nHFL.jpg',
   'https://cdn.collider.com/wp-content/uploads/2019/11/fantasy-island-blumhouse-poster-slice-600x200.jpg',

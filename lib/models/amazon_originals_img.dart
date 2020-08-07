@@ -1,4 +1,4 @@
-List<String> amazonOriginalImg = [
+final List<String> amazonOriginalImg = [
   'https://images-na.ssl-images-amazon.com/images/I/91uO1TRbO8L._RI_.jpg',
   'https://miro.medium.com/max/3000/1*r9pm_KtRcxo1oCiv2Lotzw.jpeg',
   'https://images-na.ssl-images-amazon.com/images/I/91JB1IAEtGL._RI_.jpg',

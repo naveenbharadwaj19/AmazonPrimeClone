@@ -24,7 +24,7 @@ class BottomWidgets extends StatelessWidget {
             Icons.home,
             size: _size,
           ),
-          title: Text("home"),
+          title: const Text("home"),
         ),
         BottomNavigationBarItem(
           backgroundColor: Colors.black,
@@ -32,7 +32,7 @@ class BottomWidgets extends StatelessWidget {
             Icons.search,
             size: _size,
           ),
-          title: Text("Find"),
+          title: const Text("Find"),
         ),
         BottomNavigationBarItem(
           backgroundColor: Colors.black,
@@ -40,7 +40,7 @@ class BottomWidgets extends StatelessWidget {
             PrimeDownloadIcon.download,
             size: _size,
           ),
-          title: Text("Downloads"),
+          title: const Text("Downloads"),
         ),
         BottomNavigationBarItem(
           backgroundColor: Colors.black,
@@ -49,7 +49,7 @@ class BottomWidgets extends StatelessWidget {
             size: _size,
             color: Colors.blueAccent[400],
           ),
-          title: Text("My Stuff"),
+          title: const Text("My Stuff"),
         ),
       ],
     );

@@ -10,19 +10,19 @@ class HomeScreen extends StatelessWidget {
       //   gradient: LinearGradient(
       //     colors: [
       //       Colors.indigo,
-      //       Colors.indigo[800],
+      //       Colors.indigo[800], 
       //     ],
       //     begin: Alignment.topLeft,
       //     end: Alignment.bottomRight,
       //   ),
-      // ),
+      // ),                               --> Alternate bg color
       child: DefaultTabController(
         length: 4,
         child: Scaffold(
-          backgroundColor: Color.fromRGBO(28, 37, 46, 1),
+          backgroundColor: const Color.fromRGBO(28, 37, 46, 1),
           appBar: AppBar(
             backgroundColor: Colors.transparent,
-            title: Icon(
+            title: const Icon(
               PrimeVideoIcon.amazon,
               size: 28,
             ),
@@ -38,6 +38,7 @@ class HomeScreen extends StatelessWidget {
             centerTitle: true,
           ),
           body: TabBarView(
+            physics: NeverScrollableScrollPhysics(),
             children: [
               HomePageController(),
               TvShows(),
